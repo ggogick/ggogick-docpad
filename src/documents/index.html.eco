@@ -1,0 +1,45 @@
+---
+layout: blog
+isPaged: true
+pagedCollection: 'posts'
+pageSize: 10 
+---
+<% posts = @getCollection('posts') %>
+<% for i in [@document.page.startIdx...@document.page.endIdx]: %>
+	<% document = posts.at(i).toJSON() %>
+	<article class="postdata">
+		<h3><a href='<%= document.url %>'><%= document.title %></a></h3>
+		<div class="row">
+			<div class="col-md-8">
+				<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+				<% for tag, x in document.tags: %>
+					<span><a href="/tags/<%= tag.replace /\s/, "-" %>"><%= tag %><% if x < (document.tags.length - 1): %>,<% end %></a> </span>
+				<% end %>
+			</div>
+			<div class="col-md-4 text-md-right">
+				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+				<span><%= @postNiceDateTime(document.date) %></span>
+			</div>
+		</div>
+	</article>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10"><hr></div>
+		<div class="col-md-1"></div>
+	</div>
+<% end %>
+<div class="row row-fluid postlistnav">
+	<div class="col-md-4 text-xs-center text-right">
+		<% if @hasNextPage(): %>
+			<a href="<%= @getNextPage() %>"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Older</a>
+		<% end %>
+	</div>
+	<div class="col-md-4 text-xs-center">
+		<span class="page-number">Page <%= @document.page.number + 1 %> of <%= @document.page.count %></span>
+	</div>
+	<div class="col-md-4 text-xs-center">
+		<% if @hasPrevPage(): %>
+			<a href="<%= @getPrevPage() %>">Newer <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+		<% end %>
+	</div>
+</div>

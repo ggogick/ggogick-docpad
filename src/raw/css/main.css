@@ -1,0 +1,126 @@
+@font-face {
+	font-family: 'Glyphicons Halflings';
+	src: url('/fonts/glyphicons-halflings-regular.eot');
+	src: url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+.text-xs-left { text-align: left; }
+.text-xs-right { text-align: right; }
+.text-xs-center { text-align: center; }
+.text-xs-justify { text-align: justify; }
+
+@media (min-width: 768px) {
+	.text-sm-left { text-align: left; }
+	.text-sm-right { text-align: right; }
+	.text-sm-center { text-align: center; }
+	.text-sm-justify { text-align: justify; }
+}
+
+@media (min-width: 992px) {
+	.text-md-left { text-align: left; }
+	.text-md-right { text-align: right; }
+	.text-md-center { text-align: center; }
+	.text-md-justify { text-align: justify; }
+}
+
+@media (min-width: 1200px) {
+	.text-lg-left { text-align: left; }
+	.text-lg-right { text-align: right; }
+	.text-lg-center { text-align: center; }
+	.text-lg-justify { text-align: justify; }
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	background-color: #000;
+}
+
+.banner {
+	background: #051100 url(/img/header.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 240px;
+	margin: 0;
+}
+
+.navbar {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+
+.content {
+	background: #fff;
+	width: 100%;
+	margin: 0;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.content hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 0;
+	border-top: 1px solid #d2d2d2;
+}
+
+.postlistnav {
+	margin-top: 15px;
+}
+.postdata {
+	margin-bottom: 15px;
+}
+.postdata h3 {
+	font-size: 150%;
+	margin-bottom: 3px;
+}
+.post .glyphicon {
+	padding-right: 1px;
+}
+.post .tags {
+	margin-top: 5px;
+}
+.post .date {
+}
+.post .content {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.post .paginate {
+	margin-bottom: 35px;
+}
+
+.footer {
+	background-color: #222222;
+}
+
+.footer .social {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.footer .social .center {
+	text-align: center;
+}
+
+.code {
+	font-size: 80%;
+}

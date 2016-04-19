@@ -1,0 +1,11 @@
+<%- @partial('default-header') %>
+
+<%- @partial('nav', {path:@document.relativeOutDirPath}) %>
+
+<div class="content">
+	<div class="container">
+		<%- @content %>
+	</div>
+</div>
+
+<%- @partial('default-footer') %>

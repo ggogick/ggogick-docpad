@@ -1,0 +1,20 @@
+<%- @partial('default-header') %>
+
+<%- @partial('nav', {path:@document.relativeOutDirPath}) %>
+
+<div class="content">
+	<div class="container">
+		<h2>All posts tagged as '<%= @document.tag %>':</h2>
+		<hr>
+<ul>
+<% for post in @getCollection('posts').findAll({tags: {$in: @document.tag}}).toJSON(): %>
+        <li>
+                <a href='<%= post.url %>/'><%= post.title %></a> - <span class="date"><%= @postNiceDate(post.date) %>
+        </li>
+<% end %>
+</ul>
+		<hr>
+	</div>
+</div>
+
+<%- @partial('default-footer') %>

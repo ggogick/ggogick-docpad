@@ -1,0 +1,51 @@
+<%- @partial('default-header') %>
+
+<%- @partial('nav', {path:@document.relativeOutDirPath}) %>
+
+<div class="content">
+	<div class="container post">
+		<h1><%= @document.title %></h1>
+                <div class="date">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        <span><%= @postNiceDateTime(@document.date) %></span>
+                </div>
+		<div class="tags">
+		<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+			<% for tag, i in @document.tags: %>
+			<span><a href="/tags/<%= tag.replace /\s/, "-" %>"><%= tag %><% if i < (@document.tags.length - 1): %>,<% end %></a> </span>
+			<% end %>
+		</div>
+		<hr>
+		<div class="content">
+			<%- @content %>
+		</div>
+		<hr>
+
+<!-- Get the next and previous document from the current document -->
+<% for document,documentIndex in @getCollection('posts').toJSON(): %>
+	<% if @document.id is document.id: %>
+	<!-- We have the current document, do the next and previous buttons -->
+	<nav>
+		<ul class="pager paginate">
+			<!-- Check if we have an older page -->
+			<% if documentIndex < @getCollection('posts').length - 1: %>
+			<li class="previous"><a href="<%= @getCollection('posts').toJSON()[documentIndex+1].url %>" class="next">Previous Post</a></li>
+	                <% else: %>
+	                <li class="previous disabled"><a href="#">Previous Post</a></li>
+               		<% end %>
+
+               		<!-- Check if we have a newer page -->
+	                <% if documentIndex >= 1: %>
+               		<li class="next"><a href="<%= @getCollection('posts').toJSON()[documentIndex-1].url %>" class="previous">Next Post</a></li>
+	                <% else: %>
+               		<li class="next disabled"><a href="#">Next Post</a></li>
+               		<% end %>
+		</ul>
+	</nav>
+        <% end %>
+<% end %>
+
+	</div>
+</div>
+
+<%- @partial('default-footer') %>
