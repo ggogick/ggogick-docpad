@@ -1,7 +1,7 @@
 ggogick-docpad
 ==============
 
-Commented skeleton of my personal site for reference purposes.
+Commented skeleton of my [personal site](http://ggogick.com) for reference purposes.
 
 I'm using [DocPad](http://docpad.org) to by and large generate static files, which are served via Apache.  This allows me to handle the one-off case of needing dynamic goodness for my contact form, which is handled via PHP.
 
