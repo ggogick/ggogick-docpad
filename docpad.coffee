@@ -9,7 +9,7 @@ docpadConfig = {
     posts: -> @getCollection("html").findAllLive({relativeOutDirPath: {$beginsWith: 'post'}},[{date:-1}]).on('add', (document) -> document.setMetaDefaults(layout: 'post'))
     # set up a collection of documents that does not include 'unclean' metadata - this is so we can
     # prevent the cleanurls plugin from messing with certain pages.  Specifically, the contact form.
-    cleanurls: -> @getDatabase().findAllLive({unclean: { $exists: false }})
+    cleanurls: -> @getDatabase().findAllLive({unclean: { $exists: false }, outFilename: { $endsWith: ".html"}})
 
   templateData:
     # Date handling
